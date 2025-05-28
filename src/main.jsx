@@ -39,10 +39,22 @@ function MovieList() {
 }
 
 function Movie() {
+  // const imageUrl = "1.jpg";
+  // const title = "Kaptan Amerika";
+  // const description = "Kaptan Amerika: Cesur Yeni Dünya, Kaptan Amerika'nın maceralarını konu ediyor. Amerika Birleşik Devletleri'nin yeni Başkanı Thaddeus Ross ile tanıştıktan kısa bir süre sonra Kaptan Amerika olarak da bilinen Sam Wilson, kendisini devasa bir uluslararası olayın tam ortasında bulur. Operasyonun gerçek dehası tüm dünyayı ateşe vermeden önce Sam Wilson zamana karşı amansız bir savaşa girişir.";
+
+  const imageObj = {
+    image: "1.jpg",
+    title: "Kaptan Amerika: Cesur Yeni Dünya",
+    description:
+      "Kaptan Amerika: Cesur Yeni Dünya, Kaptan Amerika'nın maceralarını konu ediyor. Amerika Birleşik Devletleri'nin yeni Başkanı Thaddeus Ross ile tanıştıktan kısa bir süre sonra Kaptan Amerika olarak da bilinen Sam Wilson, kendisini devasa bir uluslararası olayın tam ortasında bulur. Operasyonun gerçek dehası tüm dünyayı ateşe vermeden önce Sam Wilson zamana karşı amansız bir savaşa girişir.",
+  };
+
   return (
     <div className="movie">
-      <h3>Movie</h3>
-      <p>Film açıklaması</p>
+      <img src={"/img/" + imageObj.image} alt="" />
+      <h3>{imageObj.title}</h3>
+      <p>{imageObj.description}</p>
     </div>
   );
 }
