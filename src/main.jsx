@@ -45,40 +45,32 @@ function MovieList() {
       description:
         "War stories about family, ethics and honor include the true story of two U.S. Marines who in a span of six seconds, must stand their ground to stop a suicide truck bomb, a Navy Corpsman who attempts to hold on to his humanity, and a WW2 soldier who gets separated from his squad and is forced to re-evaluate his code.",
     },
+    {
+      image: "4.jpg",
+      title: "Moana 2",
+      description:
+        "“Moana 2”, Moana ve Maui'yi üç yıl sonra, alışılmadık denizcilerden oluşan bir ekiple birlikte geniş kapsamlı yeni bir yolculuk için yeniden bir araya getiriyor. Yol gösterici atalarından beklenmedik bir çağrı alan Moana, daha önce karşılaşmadığı bir macera için Okyanusya'nın uzak denizlerine, tehlikeli ve uzun süredir bilinmeyen sularına yolculuk etmek zorunda. Yönetmenliğini David Derrick Jr., Jason Hand ve Dana Ledoux Miller'ın, yapımcılığını Christina Chen ve Yvett Merino'nun üstlendiği “Moana 2 ”nin müzikleri Grammy® ödüllü Abigail Barlow ve Emily Bear, Grammy adayı Opetaia Foa ile, üç kez Grammy kazanan Mark Mancina'ya ait.",
+    },
   ];
 
   return (
     <div>
       <h2>Movie List</h2>
       <div id="movie-list">
-        <Movie
-          image={movie_list[0].image}
-          title={movie_list[0].title}
-          description={movie_list[0].description}
-        />
-        <Movie
-          image={movie_list[1].image}
-          title={movie_list[1].title}
-          description={movie_list[1].description}
-        />
-        <Movie
-          image={movie_list[2].image}
-          title={movie_list[2].title}
-          description={movie_list[2].description}
-        />
+        {movie_list.map((m, index) => (
+          <Movie key={index} movieObj={m} />
+        ))}
       </div>
     </div>
   );
 }
 
-function Movie(props) {
-  console.log(props);
-
+function Movie({ movieObj }) {
   return (
     <div className="movie">
-      <img src={"/img/" + props.image} alt="" />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <img src={"/img/" + movieObj.image} alt="" />
+      <h3>{movieObj.title}</h3>
+      <p>{movieObj.description}</p>
     </div>
   );
 }
