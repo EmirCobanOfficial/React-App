@@ -24,3 +24,6 @@ npm run dev
 
 🖼️ Not: /public/img/ klasörüne film resimlerini (1.jpg, 2.jpg, ...) eklemeyi unutmayın.
 Note: Don’t forget to add movie images to the /public/img/ folder.
+
+## 📸 Screenshots | Ekran Görüntüleri
+![Görünüm/View](https://github.com/user-attachments/assets/2e96d38f-1cc1-43a3-9cc7-a19de214c646)
