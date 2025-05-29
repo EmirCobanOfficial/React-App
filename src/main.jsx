@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <>
@@ -12,20 +12,18 @@ function App() {
 }
 
 function Header() {
-  const headerStyles = {
-    color: "red",
-    fontSize: "30px",
-    textTransform: "uppercase",
-  };
   return (
     <div id="Header">
-      <h1 style={headerStyles}>Header</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam ad, odit
-        veniam repudiandae deleniti ratione tenetur quam eos vitae inventore
-        praesentium cupiditate! Non magnam esse repellendus, aspernatur
-        distinctio nisi dolorum!
-      </p>
+      <nav
+        className="navbar navbar-expand-lg bg-dark border-bottom border-body"
+        data-bs-theme="dark"
+      >
+        <div className="container">
+          <a href="#" className="navbar-brand">
+            MovieApp
+          </a>
+        </div>
+      </nav>
     </div>
   );
 }
@@ -67,12 +65,16 @@ function MovieList() {
   ];
 
   return (
-    <div>
+    <div className="container">
       <h2 className="title">Movie List</h2>
+
       {movie_list.filter((m) => m.is_active).length == 0 ? (
         <div>Film bulunamadı</div>
       ) : (
-        <div id="movie-list">
+        <div
+          id="movie-list"
+          className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4"
+        >
           {movie_list.map((m, index) => (
             <Movie key={index} movieObj={m} />
           ))}
@@ -84,17 +86,22 @@ function MovieList() {
 
 function Movie({ movieObj }) {
   return (
-    <>
+    <div className="col">
       {movieObj.is_active && (
-        <div className="movie">
-          <img src={"/img/" + movieObj.image} alt="" />
-          <h3 className={`f30 red ${movieObj.is_new ? "new" : ""}`}>
-            {movieObj.title}
-          </h3>
-          <p>{movieObj.description}</p>
+        <div className="card movie position-relative">
+          <img src={"/img/" + movieObj.image} alt="" className="card-img-top" />
+          <div className="card-body">
+            <h2 className="h5 card-title">{movieObj.title}</h2>
+            <p className="card-text mb-0">{movieObj.description}</p>
+            {movieObj.is_new && (
+              <span className="position-absolute top-0 end-0 badge bg-danger m-1">
+                New
+              </span>
+            )}
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
